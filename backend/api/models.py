@@ -10,3 +10,25 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title
+
+class Counter(models.Model):
+    count = models.IntegerField(default=0) 
+
+    def __str__(self):
+        return f"{self.id}: {self.count}"
+
+    def increment(self):
+        """Increment the counter by 1."""
+        self.count += 1
+        self.save()
+
+    def decrement(self):
+        """decrement the counter by 1."""
+        self.count -= 1
+        self.save()
+
+    def reset(self):
+        """Reset the counter to zero."""
+        self.count = 0
+        self.save()
+       
