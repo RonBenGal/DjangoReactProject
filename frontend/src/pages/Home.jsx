@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api";
 import Note from "../components/Note"
+import Counter from "../components/Counter"; 
 import "../styles/Home.css"
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
 
@@ -9,6 +10,7 @@ function Home() {
   const [notes, setNotes] = useState([]);
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [counter , setCounter] = useState("");
   
   const navigate = useNavigate();  // Get the navigate function from react-router-dom
 
@@ -55,7 +57,7 @@ function Home() {
         else alert("Failed to make note");
         getNotes();
       })
-      .catch((err) => alert(err));
+      .catch((err) => alert(err));  
     
   };
 
@@ -91,6 +93,7 @@ function Home() {
             <input type="submit" value="Submit"></input>
         </form>
         <button className="logout-button" onClick={handleLogout}>Log Out</button>
+        <div><Counter /></div>
     </div>
 );
 }
