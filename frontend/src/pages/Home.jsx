@@ -93,7 +93,7 @@ function Home() {
             <input type="submit" value="Submit"></input>
         </form>
         <button className="logout-button" onClick={handleLogout}>Log Out</button>
-        <div><Counter /></div>
+        <div><Counter/></div>
     </div>
 );
 }
