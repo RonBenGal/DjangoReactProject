@@ -1,9 +1,9 @@
 import api from "../api";
 import { useEffect, useState } from 'react';
+import "../styles/Counter.css";
 
 const Counter = () => {
   const [count, setCount] = useState(null);
-  const [error, setError] = useState(null);
 
   // Function to create the counter if it doesn't exist
   const createCounter = () => {
@@ -29,7 +29,7 @@ const Counter = () => {
           createCounter();
         } else {
           console.error('Error fetching counter:', error.response.data);
-          setError('Could not fetch counter data.');
+          alert(error.response.data.detail);
         }
       });
   }, []);
@@ -40,8 +40,8 @@ const Counter = () => {
       .then(response => {
         setCount(response.data.count);  // Update count in state
       })
-      .catch(err => {
-        setError('Failed to increment the counter.');
+      .catch(error => {
+        alert(error.response.data.detail);
       });
   };
 
@@ -51,14 +51,14 @@ const Counter = () => {
       .then(response => {
         setCount(response.data.count);  // Update count in state
       })
-      .catch(err => {
-        setError('Failed to decrement the counter.');
+      .catch(error => {
+        alert(error.response.data.detail);
       });
   };
 
   return (
-    <div>
-      {error ? <p>{error}</p> : <h1>Counter: {count}</h1>}
+    <div className="counter-container">
+      <h1> Counter: {count}</h1>
       <button onClick={incrementCounter}>Increment</button>
       <button onClick={decrementCounter}>Decrement</button>
     </div>
