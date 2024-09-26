@@ -1,3 +1,2 @@
 env/
-__pycashe__/
-backend/api/__pycashe__/
+**/__pycache__/
