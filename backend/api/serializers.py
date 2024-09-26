@@ -23,5 +23,5 @@ class NoteSerializer(serializers.ModelSerializer):
 class CounterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Counter
-        fields = ["id" , "count"]
+        fields = ["id" , "count" ]
 

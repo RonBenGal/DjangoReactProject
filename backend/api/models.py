@@ -12,6 +12,7 @@ class Note(models.Model):
         return self.title
 
 class Counter(models.Model):
+    id = models.AutoField(primary_key=True)
     count = models.IntegerField(default=0) 
 
     def __str__(self):
